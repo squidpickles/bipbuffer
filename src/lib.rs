@@ -4,7 +4,7 @@ use std::default::Default;
 
 pub use error::{Error, ErrorKind};
 
-pub struct BipBuffer<T: Default> {
+pub struct BipBuffer<T> {
     buffer: Vec<T>,
     a_start: usize,
     a_end: usize,
