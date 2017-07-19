@@ -54,7 +54,7 @@ impl<T: Default> BipBuffer<T> {
             }
         };
         if free_space == 0 {
-            return Err(Error::new(ErrorKind::NoSpace));
+            return Err(ErrorKind::NoSpace.into());
         }
         let reserve_size = std::cmp::min(free_space, size);
         self.reserve_start = reserve_start;
@@ -84,7 +84,7 @@ impl<T: Default> BipBuffer<T> {
     }
     pub fn read(&mut self) -> Result<&mut [T], Error> {
         match self.a_end - self.a_start {
-            0 => Err(Error::new(ErrorKind::Empty)),
+            0 => Err(ErrorKind::Empty.into()),
             _ => Ok(&mut self.buffer[self.a_start..self.a_end]),
         }
     }
