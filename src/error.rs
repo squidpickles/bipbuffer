@@ -1,5 +1,5 @@
-use ::std::fmt;
-use ::std::error;
+use std::fmt;
+use std::error;
 
 #[derive(Debug)]
 pub struct Error {
@@ -23,17 +23,13 @@ impl ErrorKind {
 
 impl Error {
     pub fn new(kind: ErrorKind) -> Error {
-        Error {
-            kind: kind,
-        }
+        Error { kind: kind }
     }
 }
 
 impl From<ErrorKind> for Error {
     fn from(kind: ErrorKind) -> Error {
-        Error {
-            kind: kind,
-        }
+        Error { kind: kind }
     }
 }
 
