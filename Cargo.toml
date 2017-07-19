@@ -1,0 +1,6 @@
+[package]
+name = "bipbuffer"
+version = "0.1.0"
+authors = ["Kevin Rauwolf <sweetpea-git@tentacle.net>"]
+
+[dependencies]
