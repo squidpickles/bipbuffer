@@ -72,12 +72,10 @@ impl<T: Default> BipBuffer<T> {
         if self.a_end - self.a_start == 0 && self.b_end - self.b_start == 0 {
             self.a_start = self.reserve_start;
             self.a_end = self.reserve_start + to_commit;
+        } else if self.reserve_start == self.a_end {
+            self.a_end += to_commit;
         } else {
-            if self.reserve_start == self.a_end {
-                self.a_end += to_commit;
-            } else {
-                self.b_end += to_commit;
-            }
+            self.b_end += to_commit;
         }
         self.reserve_start = 0;
         self.reserve_end = 0;
@@ -106,10 +104,12 @@ impl<T: Default> BipBuffer<T> {
     pub fn reserved_len(&self) -> usize {
         self.reserve_end - self.reserve_start
     }
-
     #[inline]
     pub fn len(&self) -> usize {
         self.buffer.capacity()
+    }
+    pub fn is_empty(&self) -> bool {
+        self.reserved_len() == 0 && self.committed_len() == 0
     }
 }
 
