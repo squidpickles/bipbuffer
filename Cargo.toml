@@ -1,11 +1,16 @@
 [package]
 name = "bipbuffer"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Kevin Rauwolf <sweetpea-git@tentacle.net>"]
 description = "A Rust implementation of Simon Cooke's Bip-Buffer"
 homepage = "https://github.com/squidpickles/bipbuffer"
 readme = "README.md"
+keywords = ["circular buffer", "ring buffer", "bipartite", "buffer"]
+categories = ["data-structures"]
 license = "Apache-2.0"
 repository = "https://github.com/squidpickles/bipbuffer.git"
 
 [dependencies]
+
+[badges]
+travis-ci = { repository = "squidpickles/bipbuffer", branch = "master" }
