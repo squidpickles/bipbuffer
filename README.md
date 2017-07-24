@@ -1,4 +1,5 @@
 # Bip-Buffer
+[![Build Status](https://travis-ci.org/squidpickles/bipbuffer.svg?branch=master)](https://travis-ci.org/squidpickles/bipbuffer)
 A Rust implementation of Simon Cooke's [Bip-Buffer][1]
 
 A Bip-Buffer is similar to a circular buffer, but data is inserted in two
