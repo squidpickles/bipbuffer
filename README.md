@@ -8,7 +8,7 @@ wrap-around in a circular buffer. It's especially useful for APIs requiring
 blocks of contiguous memory, eliminating the need to copy data into an interim
 buffer before use.
 
-# Examples
+## Examples
 ```rust
 use bipbuffer::BipBuffer;
 
