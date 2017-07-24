@@ -1,29 +1,28 @@
-use std::fmt;
-use std::error;
+//! Errors used in the Bip-Buffer implementation
 
-#[derive(Debug)]
+use std::error;
+use std::fmt;
+
+/// The error type
+#[derive(Clone, Copy, Debug)]
 pub struct Error {
+    /// Contains the type of error
     kind: ErrorKind,
 }
 
+/// Specific error types
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum ErrorKind {
+    /// No space is available for writing to the buffer; data must be marked read by calling
+    /// [`decommit()`](struct.BipBuffer.html#method.decommit)
     NoSpace,
-    Empty,
 }
 
 impl ErrorKind {
     fn as_str(&self) -> &'static str {
         match *self {
             ErrorKind::NoSpace => "no space",
-            ErrorKind::Empty => "empty",
         }
-    }
-}
-
-impl Error {
-    pub fn new(kind: ErrorKind) -> Error {
-        Error { kind: kind }
     }
 }
 

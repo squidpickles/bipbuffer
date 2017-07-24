@@ -2,5 +2,10 @@
 name = "bipbuffer"
 version = "0.1.0"
 authors = ["Kevin Rauwolf <sweetpea-git@tentacle.net>"]
+repository = "https://github.com/squidpickles/bipbuffer.git"
+homepage = "https://github.com/squidpickles/bipbuffer"
+license = "Apache-2.0"
+readme = "README.md"
+description = "A Rust implementation of Simon Cooke's Bip-Buffer"
 
 [dependencies]
