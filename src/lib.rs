@@ -1,5 +1,14 @@
-#![deny(missing_docs, missing_debug_implementations, missing_copy_implementations, trivial_casts,
-trivial_numeric_casts, unsafe_code, unstable_features, unused_import_braces, unused_qualifications)]
+#![deny(
+    missing_docs,
+    missing_debug_implementations,
+    missing_copy_implementations,
+    trivial_casts,
+    trivial_numeric_casts,
+    unsafe_code,
+    unstable_features,
+    unused_import_braces,
+    unused_qualifications
+)]
 //! # Bip-Buffer
 //! A Rust implementation of Simon Cooke's [Bip-Buffer][1]
 //!
@@ -46,7 +55,7 @@ trivial_numeric_casts, unsafe_code, unstable_features, unused_import_braces, unu
 //! [1]: https://www.codeproject.com/articles/3479/the-bip-buffer-the-circular-buffer-with-a-twist
 mod error;
 
-pub use error::{Error, ErrorKind};
+pub use crate::error::{Error, ErrorKind};
 use std::default::Default;
 
 /// A Bip-Buffer object
@@ -76,7 +85,7 @@ impl<T: Default> BipBuffer<T> {
             buffer.push(Default::default());
         }
         BipBuffer {
-            buffer: buffer,
+            buffer,
             a_start: 0,
             a_end: 0,
             b_start: 0,

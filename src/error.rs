@@ -19,8 +19,8 @@ pub enum ErrorKind {
 }
 
 impl ErrorKind {
-    fn as_str(&self) -> &'static str {
-        match *self {
+    fn as_str(self) -> &'static str {
+        match self {
             ErrorKind::NoSpace => "no space",
         }
     }
@@ -28,7 +28,7 @@ impl ErrorKind {
 
 impl From<ErrorKind> for Error {
     fn from(kind: ErrorKind) -> Error {
-        Error { kind: kind }
+        Error { kind }
     }
 }
 
@@ -43,7 +43,7 @@ impl error::Error for Error {
         self.kind.as_str()
     }
 
-    fn cause(&self) -> Option<&error::Error> {
+    fn cause(&self) -> Option<&dyn error::Error> {
         None
     }
 }
